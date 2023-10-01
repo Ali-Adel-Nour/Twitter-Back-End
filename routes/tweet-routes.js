@@ -2,35 +2,12 @@ const express = require ('express');
 
 const router = express.Router();
 
+const tweetController = require('../controllers/tweets-controller');
 
-router.post('/',(req,res)=>{
-  res.status(501).json({error:'Not implemented'})
-})
-
-
-
-router.get('/',(req,res)=>{
-  res.status(501).json({error:'Not implemented'})
-
-})
-
-
-router.get('/:id',(req,res)=>{
-  const {id} = req.params;
-  res.status(501).json({error:'Not implemented'})
-
-})
-
-
-router.put('/:id',(req,res)=>{
-  const {id} = req.params;
-  res.status(501).json({error:`Not implemented: ${id}`})
-})
-
-
-router.delete('/:id',(req,res)=>{
-  const {id} = req.params;
-  res.status(501).json({error:`Not implemented: ${id}`})
-})
+router.post('/', tweetController.createTweet);
+router.get('/', tweetController.getAllTweets);
+router.get('/:id', tweetController.getTweetById);
+router.put('/:id', tweetController.updateTweetById);
+router.delete('/:id', tweetController.deleteTweetById);
 
 module.exports= router
